@@ -109,14 +109,3 @@ Menu As screen:
         Y: =90
         ZIndex: =7
 
-    TextCanvas1 As Text:
-        DisplayMode: =DisplayMode.Edit
-        Font: =Font.Georgia
-        Height: =54
-        Size: =22
-        Text: ="GitHub Integration"
-        Width: =208
-        X: =48
-        Y: =207
-        ZIndex: =8
-
