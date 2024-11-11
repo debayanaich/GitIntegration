@@ -120,12 +120,3 @@ Login As screen:
         Y: =670
         ZIndex: =6
 
-    TextCanvas1 As Text:
-        DisplayMode: =DisplayMode.Edit
-        Height: =84
-        Text: ="1234"
-        Width: =448
-        X: =40
-        Y: =232
-        ZIndex: =7
-
