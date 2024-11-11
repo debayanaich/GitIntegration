@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr1a6_map_locs",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr1a6_map_loc",
+    "MaxGetRowsCount": 500,
+    "Name": "Map_locs",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr1a6_address": "Address",
+      "cr1a6_checkintime": "CheckInTime",
+      "cr1a6_dealer": "Dealer",
+      "cr1a6_latitude": "Latitude",
+      "cr1a6_longtitude": "Longtitude",
+      "cr1a6_map_loc_AsyncOperations": "System Jobs",
+      "cr1a6_map_loc_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr1a6_map_loc_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr1a6_map_loc_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr1a6_map_loc_ProcessSession": "Process Sessions",
+      "cr1a6_map_loc_SyncErrors": "Sync Errors",
+      "cr1a6_map_locid": "Map_loc",
+      "cr1a6_mid": "MID",
+      "cr1a6_tpdid": "TPDID",
+      "cr1a6_vid": "VID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Map_locs",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Map_locs (Views)",
+    "Name": "_cr1a6_map_loc_views",
+    "RelatedEntityName": "Map_locs",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "8eeede74-11f9-45cc-bae6-f48ba8ab7b81": "Map_loc Associated View",
+      "b5ea3ca9-5f8a-43fa-872e-d3217b3674d8": "Active Map_locs",
+      "cbc4a81d-837a-4a7a-8535-1c1049a7b967": "Inactive Map_locs",
+      "dcd2ce30-5c7b-41f5-823d-a14e7d49b541": "Map_loc Advanced Find View",
+      "f451bd50-aef4-4b58-ae23-66604d966aa3": "Map_loc Lookup View"
+    }
+  },
+  {
+    "DisplayName": "Status (Map_locs)",
+    "Name": "cr1a6_map_loc_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Map_locs"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Map_locs",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Map_locs)",
+    "Name": "cr1a6_map_loc_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Map_locs"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Map_locs",
+    "Type": "OptionSetInfo"
+  }
+]

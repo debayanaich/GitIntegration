@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr1a6_tp_detailses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr1a6_tp_details",
+    "MaxGetRowsCount": 500,
+    "Name": "TP_Details",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr1a6_date": "Start_Date",
+      "cr1a6_dept_name": "Dept_Name",
+      "cr1a6_eeid": "EEID",
+      "cr1a6_end_date": "End_Date",
+      "cr1a6_purpose": "Purpose",
+      "cr1a6_status": "Status (cr1a6_status)",
+      "cr1a6_tp_details_AsyncOperations": "System Jobs",
+      "cr1a6_tp_details_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr1a6_tp_details_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr1a6_tp_details_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr1a6_tp_details_ProcessSession": "Process Sessions",
+      "cr1a6_tp_details_SyncErrors": "Sync Errors",
+      "cr1a6_tp_detailsid": "TP_Details",
+      "cr1a6_tpdid": "TPDID",
+      "cr1a6_tpid": "TPID",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status (statecode)",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "TP_Details",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "TP_Details (Views)",
+    "Name": "_cr1a6_tp_details_views",
+    "RelatedEntityName": "TP_Details",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "6dc05790-2b1c-498e-836f-ec8bfa815ad4": "Inactive TP_Details",
+      "81d1b21d-bad5-4c95-8b5f-e398dd92bf2e": "Active TP_Details",
+      "8f531ba3-e000-43f1-9369-204b48227a6d": "TP_Details Lookup View",
+      "9b9c4313-8605-4895-be61-5fed220df3af": "TP_Details Advanced Find View",
+      "d9e38e98-53b3-4513-b398-623351050a28": "TP_Details Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (TP_Details)",
+    "Name": "cr1a6_tp_details_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "TP_Details"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "TP_Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (TP_Details)",
+    "Name": "cr1a6_tp_details_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "TP_Details"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "TP_Details",
+    "Type": "OptionSetInfo"
+  }
+]

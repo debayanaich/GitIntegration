@@ -1,0 +1,122 @@
+Login As screen:
+    BackgroundImage: =
+    Fill: =RGBA(139, 154, 159, 1)
+    ImagePosition: =ImagePosition.Center
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =Set(varUser, User().Email)
+
+    Header1_5 As Header:
+        Align: =""
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        Height: =75
+        Logo: ='logo-removebg-preview'
+        OnSelectLogo: =false
+        Style: ='Header.Style'.Primary
+        Title: =App.ActiveScreen.Name
+        TitleFontSize: =25
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    Label15 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =67
+        Size: =21
+        Text: ="UserName"
+        Width: =160
+        X: =40
+        Y: =392
+        ZIndex: =2
+
+    Label15_1 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =67
+        Size: =21
+        Text: ="Password"
+        Width: =160
+        X: =40
+        Y: =482
+        ZIndex: =3
+
+    TextInput_UID As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Clear: =true
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =67
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =21
+        Width: =392
+        X: =200
+        Y: =392
+        ZIndex: =4
+
+    TextInput_Pass As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =67
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Mode: =TextMode.Password
+        Size: =21
+        Width: =392
+        X: =200
+        Y: =482
+        ZIndex: =5
+
+    Button1 As button:
+        BorderColor: =App.Theme.Colors.Primary
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(!IsBlank(TextInput_UID.Text) && !IsBlank(TextInput_Pass.Text), DisplayMode.Edit,DisplayMode.Disabled)
+        Fill: =App.Theme.Colors.Primary
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =App.Theme.Colors.Darker10
+        OnSelect: |-
+            =Set(varUID, TextInput_UID.Text);
+            Navigate(Menu)
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        Size: =24
+        Text: ="Login"
+        Width: =280
+        X: =180
+        Y: =670
+        ZIndex: =6
+

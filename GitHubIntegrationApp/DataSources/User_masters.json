@@ -1,0 +1,100 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr1a6_newtables",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr1a6_newtable",
+    "MaxGetRowsCount": 500,
+    "Name": "User_masters",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr1a6_approver": "approver",
+      "cr1a6_eeid": "EEID",
+      "cr1a6_email": "email",
+      "cr1a6_name": "Name",
+      "cr1a6_newtable_AsyncOperations": "System Jobs",
+      "cr1a6_newtable_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr1a6_newtable_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr1a6_newtable_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr1a6_newtable_ProcessSession": "Process Sessions",
+      "cr1a6_newtable_SyncErrors": "Sync Errors",
+      "cr1a6_newtableid": "New table",
+      "cr1a6_pass": "pass",
+      "cr1a6_role": "role",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "User_masters",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "User_masters (Views)",
+    "Name": "_cr1a6_newtable_views",
+    "RelatedEntityName": "User_masters",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "574aa347-6752-4dc9-ae99-f5356c387c50": "User_master Advanced Find View",
+      "6cfb7d00-7e6f-4efd-a948-115de5026e86": "Active User_masters",
+      "7dd5418a-3550-4d48-bb68-e66746813b73": "User_master Lookup View",
+      "d225589f-0369-4d08-a04f-d521bd934b88": "Inactive User_masters",
+      "dbdb4ba0-5380-4f69-ba8d-52919c17999b": "User_master Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (User_masters)",
+    "Name": "cr1a6_newtable_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "User_masters"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "User_masters",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (User_masters)",
+    "Name": "cr1a6_newtable_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "User_masters"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "User_masters",
+    "Type": "OptionSetInfo"
+  }
+]

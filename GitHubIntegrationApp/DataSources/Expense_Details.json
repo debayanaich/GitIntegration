@@ -1,0 +1,104 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr1a6_expense_detailses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr1a6_expense_details",
+    "MaxGetRowsCount": 500,
+    "Name": "Expense_Details",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr1a6_amount": "Amount",
+      "cr1a6_comment": "Comment",
+      "cr1a6_eeid": "EEID",
+      "cr1a6_exid": "ExID",
+      "cr1a6_expense_details_AsyncOperations": "System Jobs",
+      "cr1a6_expense_details_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr1a6_expense_details_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr1a6_expense_details_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr1a6_expense_details_ProcessSession": "Process Sessions",
+      "cr1a6_expense_details_SyncErrors": "Sync Errors",
+      "cr1a6_expense_detailsid": "Expense_Details",
+      "cr1a6_from": "From",
+      "cr1a6_mode": "Mode",
+      "cr1a6_status": "Status (cr1a6_status)",
+      "cr1a6_to": "To",
+      "cr1a6_tpdid": "TPDID",
+      "cr1a6_type": "Type",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status (statecode)",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Expense_Details",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Expense_Details (Views)",
+    "Name": "_cr1a6_expense_details_views",
+    "RelatedEntityName": "Expense_Details",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "143cd579-367d-4952-a76f-2b19e17cbe97": "Expense_Details Lookup View",
+      "162f33eb-956f-4afb-a891-11fc4eac987d": "Expense_Details Associated View",
+      "83a46ec5-25b7-4563-b08c-8b7da3439296": "Inactive Expense_Details",
+      "95053c97-770a-4bfd-9ef6-4987254270e1": "Active Expense_Details",
+      "ff08a3db-8ed4-4baf-b3bb-351cf1c1f180": "Expense_Details Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Expense_Details)",
+    "Name": "cr1a6_expense_details_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Expense_Details"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Expense_Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Expense_Details)",
+    "Name": "cr1a6_expense_details_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Expense_Details"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Expense_Details",
+    "Type": "OptionSetInfo"
+  }
+]

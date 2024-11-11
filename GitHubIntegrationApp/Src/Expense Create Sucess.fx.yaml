@@ -1,0 +1,77 @@
+"'Expense Create Sucess' As screen.'phoneLayout_Success_ver3.0'":
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    iconCircle1_1 As circle.Circle:
+        BorderColor: =App.Theme.Colors.Darker40
+        Fill: =App.Theme.Colors.Primary
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        ZIndex: =1
+
+    iconCheck1_1 As icon.Check:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =iconCircle1_1.Height
+        Icon: =Icon.Check
+        PaddingBottom: =Self.PaddingTop
+        PaddingLeft: =Self.PaddingTop
+        PaddingRight: =Self.PaddingTop
+        PaddingTop: =18
+        PressedFill: =RGBA(255, 255, 255, 0.3)
+        Width: =iconCircle1_1.Width
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =(Parent.Height/2 - Self.Height/2) * .7
+        ZIndex: =2
+
+    LblSuccessMsg1_1 As label:
+        Align: =Align.Center
+        AutoHeight: =true
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        Height: =iconCircle1_1.Height
+        Size: =21
+        Text: ="Expense Created Sucessfully"
+        Width: =Parent.Width * 0.75
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =iconCheck1_1.Y + iconCheck1_1.Height + 100
+        ZIndex: =3
+
+    Button4_1 As button:
+        BorderColor: =App.Theme.Colors.Primary
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =App.Theme.Colors.Primary
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =App.Theme.Colors.Darker10
+        OnSelect: =Navigate('Expense Details')
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        Size: =24
+        Text: ="Finish"
+        Width: =280
+        X: =180
+        Y: =985
+        ZIndex: =4
+
+    Icon8_1 As icon.BackArrow:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Expense Details')
+        X: =40
+        Y: =40
+        ZIndex: =5
+

@@ -1,0 +1,334 @@
+Approval As screen:
+    BackgroundImage: =
+    Fill: =RGBA(139, 154, 159, 1)
+    ImagePosition: =ImagePosition.Center
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =Set(varStat, 3)
+
+    Gallery2 As gallery.galleryVertical:
+        BorderThickness: =2
+        DelayItemLoading: =true
+        Height: =1058
+        Items: |
+            =Sort(
+            Filter(TP_Details,'Status (cr1a6_status)'<>99),TPDID,SortOrder.Descending)
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplateSize: =439
+        Y: =75
+        ZIndex: =2
+
+        Rectangle5 As rectangle:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(214, 221, 224, 1)
+            Height: =439
+            OnSelect: =Select(Parent)
+            Width: =630
+            ZIndex: =1
+
+        Rectangle1 As rectangle:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(77, 134, 156, 1)
+            Height: =77
+            OnSelect: =Select(Parent)
+            Width: =630
+            ZIndex: =2
+
+        Label1 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =52
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =LookUp(User_masters, EEID = ThisItem.EEID).Name
+            Width: =230
+            X: =198
+            Y: =13
+            ZIndex: =3
+
+        Label2 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(237, 235, 235, 1)
+            Font: =App.Theme.Font
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =Text (ThisItem.Start_Date, "dd/mm/yyyy")
+            Width: =165
+            X: =180
+            Y: =97
+            ZIndex: =4
+
+        Label3 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(237, 235, 235, 1)
+            Font: =App.Theme.Font
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =Text (ThisItem.End_Date, "dd/mm/yyyy")
+            Width: =165
+            X: =180
+            Y: =154
+            ZIndex: =5
+
+        Label5 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(237, 235, 235, 1)
+            Font: =App.Theme.Font
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =ThisItem.TPDID
+            Width: =165
+            X: =180
+            Y: =218
+            ZIndex: =6
+
+        Label6 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(237, 235, 235, 1)
+            Font: =App.Theme.Font
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =LookUp(User_masters, email=LookUp(User_masters, EEID = ThisItem.EEID).approver).Name
+            Width: =215
+            X: =180
+            Y: =295
+            ZIndex: =7
+
+        Label7 As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(237, 235, 235, 1)
+            Font: =App.Theme.Font
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =DateDiff(ThisItem.Start_Date,ThisItem.End_Date)+1
+            Width: =165
+            X: =180
+            Y: =370
+            ZIndex: =8
+
+        Label_status As label:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Fill: |-
+                =If(Label_status.Text = "Pending", RGBA(255, 215, 0, 1),
+                If(Label_status.Text = "Approved", RGBA(29, 255, 0, 0.57), RGBA(221, 87, 70, 1)))
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: =Switch(ThisItem.'Status (cr1a6_status)', 1, "Approved", 2, "Rejected", 0, "Pending")
+            Width: =136
+            X: =475
+            Y: =15
+            ZIndex: =9
+
+        Icon1 As icon.CheckBadge:
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(214, 221, 224, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayMode: =If(ThisItem.'Status (cr1a6_status)'>0, DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =RGBA(72, 163, 62, 1)
+            Height: =60
+            Icon: =Icon.CheckBadge
+            OnSelect: |-
+                =UpdateIf(TP_Details, TPDID = ThisItem.TPDID,{'Status (cr1a6_status)':1})
+            Width: =60
+            X: =443
+            Y: =196
+            ZIndex: =10
+
+        Icon2 As icon.CancelBadge:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(214, 221, 224, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayMode: =If(ThisItem.'Status (cr1a6_status)'>0, DisplayMode.Disabled, DisplayMode.Edit)
+            Fill: =RGBA(233, 79, 76, 1)
+            Height: =60
+            Icon: =Icon.CancelBadge
+            OnSelect: |-
+                =UpdateIf(TP_Details, TPDID = ThisItem.TPDID,{'Status (cr1a6_status)':2})
+            Width: =60
+            X: =544
+            Y: =196
+            ZIndex: =11
+
+        Label9 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =52
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: ="Name"
+            Width: =97
+            X: =22
+            Y: =13
+            ZIndex: =12
+
+        Label10 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: ="Start Date"
+            Width: =142
+            X: =17
+            Y: =97
+            ZIndex: =13
+
+        Label11 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: ="End Date"
+            Width: =142
+            X: =17
+            Y: =155
+            ZIndex: =14
+
+        Label12 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: ="Tour ID"
+            Width: =142
+            X: =17
+            Y: =218
+            ZIndex: =15
+
+        Label13 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =47
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: ="Days"
+            Width: =142
+            X: =17
+            Y: =371
+            ZIndex: =16
+
+        Label14 As label:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            FontWeight: =FontWeight.Semibold
+            Height: =91
+            OnSelect: =Select(Parent)
+            Size: =21
+            Text: ="Approver Name"
+            Width: =142
+            X: =17
+            Y: =280
+            ZIndex: =17
+
+        "Icon14 As icon.'3DPrinting'":
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =App.Theme.Colors.Darker30
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Icon: =Icon.Information
+            OnSelect: |-
+                =Set(varID, ThisItem.TPDID);
+                Navigate('Visit Details')
+            Tooltip: ="Visit Details"
+            X: =540
+            Y: =90
+            ZIndex: =18
+
+        "Icon4 As icon.'3DPrinting'":
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =App.Theme.Colors.Darker30
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Icon: =Icon.Waypoint
+            OnSelect: |-
+                =Set(varID, ThisItem.TPDID);
+                Navigate('Check-In View')
+            Tooltip: ="Check-In Details"
+            X: =436
+            Y: =88
+            ZIndex: =19
+
+    Header1_1 As Header:
+        Align: =""
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        Height: =75
+        Logo: ='logo-removebg-preview'
+        OnSelectLogo: =false
+        Style: ='Header.Style'.Primary
+        Title: =App.ActiveScreen.Name
+        TitleFontSize: =25
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =4
+
+    Icon5 As icon.Home:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.Home
+        OnSelect: =Navigate(Menu)
+        X: =440
+        Y: =5
+        ZIndex: =5
+

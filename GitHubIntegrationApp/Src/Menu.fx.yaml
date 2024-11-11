@@ -1,0 +1,111 @@
+Menu As screen:
+    BackgroundImage: =
+    Fill: =RGBA(214, 221, 224, 1)
+    ImagePosition: =ImagePosition.Center
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =Set(varUser, User().Email)
+
+    Header1 As Header:
+        Align: =""
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        Height: =75
+        Logo: ='logo-removebg-preview'
+        OnSelectLogo: =false
+        Style: ='Header.Style'.Primary
+        Title: =App.ActiveScreen.Name
+        TitleFontSize: =25
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    ButtonCanvas1 As Button:
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        FontSize: =25
+        Height: =72
+        OnSelect: =Navigate('Tour Plan Details')
+        Text: ="Tour Plan"
+        Width: =270
+        X: =212
+        Y: =372
+        ZIndex: =2
+
+    ButtonCanvas1_1 As Button:
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        FontSize: =25
+        Height: =72
+        OnSelect: |-
+            =Navigate('Check-In');
+            Enable(Location);
+            Set(myLoc,
+            BingMaps.GetLocationByPoint(Location.Latitude,Location.Longitude))
+        Text: ="Check-In"
+        Width: =270
+        X: =212
+        Y: =512
+        ZIndex: =3
+
+    ButtonCanvas1_2 As Button:
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        FontSize: =25
+        Height: =72
+        OnSelect: =Navigate('Expense Details')
+        Text: ="Expense"
+        Width: =270
+        X: =212
+        Y: =656
+        ZIndex: =4
+
+    ButtonCanvas1_3 As Button:
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        FontSize: =25
+        Height: =72
+        OnSelect: =Navigate(Approval)
+        Text: ="Tour Approve"
+        Visible: =If(LookUp(User_masters,EEID = varUID).role=0, true, false)
+        Width: =270
+        X: =212
+        Y: =803
+        ZIndex: =5
+
+    ButtonCanvas1_4 As Button:
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        FontSize: =25
+        Height: =72
+        OnSelect: =Navigate('Expense Approval')
+        Text: ="Expense Approve"
+        Visible: =If(LookUp(User_masters,EEID = varUID).role=0, true, false)
+        Width: =270
+        X: =212
+        Y: =945
+        ZIndex: =6
+
+    Icon6 As icon.Lock:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.Lock
+        OnSelect: |-
+            =Reset(TextInput_UID);
+            Reset(TextInput_Pass);
+            Navigate(Login)
+        X: =315
+        Y: =90
+        ZIndex: =7
+

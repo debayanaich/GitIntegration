@@ -1,0 +1,23 @@
+{
+  "fa40e61a-3f5e-47a1-8568-36bbaee5e9ae": {
+    "appActions": [
+      "GetLocationByPoint"
+    ],
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Bing Maps",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1682/1.0.1682.3673/bingmaps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_bingmaps",
+      "parameterHints": {},
+      "parameterHintsV2": {},
+      "sharedConnectionId": "/providers/microsoft.powerapps/apis/shared_bingmaps/connections/d7819271c83342a6816af1f6ea617ba5"
+    },
+    "datasets": {},
+    "dataSources": [
+      "BingMaps"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "fa40e61a-3f5e-47a1-8568-36bbaee5e9ae"
+  }
+}

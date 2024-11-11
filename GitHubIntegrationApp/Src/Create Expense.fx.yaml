@@ -1,0 +1,392 @@
+"'Create Expense' As screen":
+    BackgroundImage: =
+    Fill: =RGBA(139, 154, 159, 1)
+    ImagePosition: =ImagePosition.Center
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =
+
+    Header1_3 As Header:
+        Align: =""
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        Height: =75
+        Logo: ='logo-removebg-preview'
+        OnSelectLogo: =false
+        Style: ='Header.Style'.Primary
+        Title: =App.ActiveScreen.Name
+        TitleFontSize: =25
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    Label4_5 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =20
+        Text: ="Tour ID"
+        Width: =144
+        X: =390
+        Y: =92
+        ZIndex: =8
+
+    Label4_6 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =50
+        Size: =20
+        Text: ="Expense Type"
+        Width: =274
+        X: =33
+        Y: =92
+        ZIndex: =10
+
+    Label4_7 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =60
+        Size: =20
+        Text: ="From"
+        Width: =200
+        X: =82
+        Y: =295
+        ZIndex: =13
+
+    Label_Par As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =64
+        Size: =20
+        Text: =If(Dropdown_Type.SelectedText.Value= "Conveyance", "Transit Mode", "Particulars")
+        Width: =225
+        X: =71
+        Y: =522
+        ZIndex: =14
+
+    Label4_9 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =59
+        Size: =20
+        Text: ="Amount (₹)"
+        Width: =194
+        X: =396
+        Y: =522
+        ZIndex: =15
+
+    TextInput_Particular As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =If(!IsBlank(varExID), LookUp(Expense_Details,ExID = varExID).Mode)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =54
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =21
+        Visible: =If(Label_Par.Text = "Particulars",true)
+        Width: =237
+        X: =65
+        Y: =584
+        ZIndex: =16
+
+    TextInput_Amount As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =If(!IsBlank(varExID), LookUp(Expense_Details,ExID = varExID).Amount, Blank())
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.Verdana
+        Height: =64
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =21
+        Width: =215
+        X: =386
+        Y: =579
+        ZIndex: =17
+
+    Button_Save_1 As button:
+        BorderColor: =App.Theme.Colors.Primary
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: |-
+            =If(
+                IsBlank(Dropdown_TourID.SelectedText) || IsBlank(TextInput_Amount.Text),
+                DisplayMode.Disabled,
+                DisplayMode.Edit
+            )
+        Fill: =App.Theme.Colors.Primary
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =App.Theme.Colors.Darker10
+        OnSelect: |
+            =If(
+                !IsBlank(varUID),
+                Patch(
+                    Expense_Details,Defaults(Expense_Details),
+                    {
+                        EEID: varUID,
+                        Amount: Value (TextInput_Amount.Text),
+                        'Status (cr1a6_status)': 99,
+                        Comment: TextInput_ExpenseComment.Text,
+                        From: DatePicker_Departure.SelectedDate,
+                        To: DatePicker_Arrival.SelectedDate,
+                        Mode: If(
+                            Label_Par.Text = "Particulars",
+                            TextInput_Particular.Text,
+                            Dropdown_transit.SelectedText.Value
+                        ),
+                        TPDID: Dropdown_TourID.SelectedText.Value,
+                        Type: Dropdown_Type.SelectedText.Value
+                    }
+                );
+                Navigate('Expense Create Sucess');
+                ,
+                Notify(
+                    "Please Enter Necessary Expense Details!!",
+                    NotificationType.Error
+                )
+            );
+            Set(varExID, "");
+            Reset(Dropdown_TourID);
+            Reset(Dropdown_transit);
+            Reset(TextInput_Amount);
+            Reset(TextInput_ExpenseComment);
+            Reset(TextInput_Particular);
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        Size: =24
+        Text: ="Save & Proceed"
+        Width: =280
+        X: =341
+        Y: =1017
+        ZIndex: =18
+
+    Icon4_1 As icon.BackArrow:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.BackArrow
+        OnSelect: |-
+            =Set(varExID, "");
+            Navigate('Expense Details')
+        X: =14
+        Y: =1023
+        ZIndex: =19
+
+    Dropdown_TourID As dropdown:
+        AllowEmptySelection: =true
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        Height: =67
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Items: |-
+            =If(
+                IsBlank(varExID),
+                Filter(
+                    TP_Details,
+                    EEID = varUID
+                ),
+                Filter(
+                    Expense_Details,
+                    ExID = varExID
+                )
+            )
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =18
+        Width: =172
+        X: =395
+        Y: =151
+        ZIndex: =20
+
+    Dropdown_Type As dropdown:
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =LookUp(Expense_Details, ExID = varExID).Type
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        Height: =67
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Items: =["Conveyance", "Non-Conveyance"]
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =18
+        Width: =235
+        X: =67
+        Y: =151
+        ZIndex: =21
+
+    DatePicker_Departure As datepicker:
+        BorderColor: =App.Theme.Colors.Darker40
+        CalendarHeaderFill: =App.Theme.Colors.Primary
+        Color: =RGBA(0, 0, 0, 1)
+        DefaultDate: =LookUp(TP_Details, TPDID = Dropdown_TourID.SelectedText.Value).Start_Date
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        Height: =67
+        HoverDateFill: =App.Theme.Colors.Lighter70
+        IconBackground: =App.Theme.Colors.Primary
+        SelectedDateFill: =App.Theme.Colors.Primary
+        Size: =20
+        Width: =231
+        X: =67
+        Y: =366
+        ZIndex: =22
+
+    DatePicker_Arrival As datepicker:
+        BorderColor: =App.Theme.Colors.Darker40
+        CalendarHeaderFill: =App.Theme.Colors.Primary
+        Color: =RGBA(0, 0, 0, 1)
+        DefaultDate: =LookUp(TP_Details, TPDID = Dropdown_TourID.SelectedText.Value).End_Date
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        Height: =67
+        HoverDateFill: =App.Theme.Colors.Lighter70
+        IconBackground: =App.Theme.Colors.Primary
+        SelectedDateFill: =App.Theme.Colors.Primary
+        Size: =20
+        Width: =231
+        X: =376
+        Y: =366
+        ZIndex: =23
+
+    Label4_10 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =60
+        Size: =20
+        Text: ="To"
+        Width: =200
+        X: =381
+        Y: =295
+        ZIndex: =24
+
+    Label4_11 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =62
+        Size: =20
+        Text: ="Comments"
+        Width: =184
+        X: =78
+        Y: =715
+        ZIndex: =25
+
+    TextInput_ExpenseComment As text:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =If(!IsBlank(varExID), LookUp(Expense_Details, ExID = varExID).Comment)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =119
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =21
+        Width: =534
+        X: =67
+        Y: =776
+        ZIndex: =26
+
+    Dropdown_transit As dropdown:
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =LookUp(Expense_Details,ExID = varExID).Mode
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        Height: =54
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Items: =["Road", "Train", "Air"]
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =21
+        Visible: =If(Label_Par.Text = "Transit Mode",true)
+        Width: =237
+        X: =65
+        Y: =584
+        ZIndex: =27
+

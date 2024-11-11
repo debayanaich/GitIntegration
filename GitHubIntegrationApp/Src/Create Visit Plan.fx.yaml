@@ -1,0 +1,309 @@
+"'Create Visit Plan' As screen":
+    BackgroundImage: =
+    Fill: =RGBA(139, 154, 159, 1)
+    ImagePosition: =ImagePosition.Center
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =
+
+    Header1_2 As Header:
+        Align: =""
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        Height: =75
+        Logo: ='logo-removebg-preview'
+        OnSelectLogo: =false
+        Style: ='Header.Style'.Primary
+        Title: =App.ActiveScreen.Name
+        TitleFontSize: =25
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    Label4 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =68
+        Size: =18
+        Text: ="Start Date"
+        Width: =152
+        X: =14
+        Y: =193
+        ZIndex: =8
+
+    DatePicker_Start As datepicker:
+        BorderColor: =App.Theme.Colors.Darker40
+        CalendarHeaderFill: =App.Theme.Colors.Primary
+        Color: =RGBA(15, 84, 140, 1)
+        DefaultDate: = DatePicker_Start_V.SelectedDate
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =59
+        HoverDateFill: =App.Theme.Colors.Lighter70
+        IconBackground: =App.Theme.Colors.Primary
+        OnChange: =If(DatePicker_Start.SelectedDate<DatePicker_Start_V.SelectedDate, Reset(DatePicker_Start); Notify("Incorrect Date range!!", NotificationType.Error))
+        SelectedDateFill: =App.Theme.Colors.Primary
+        Size: =16
+        Width: =215
+        X: =166
+        Y: =202
+        ZIndex: =9
+
+    Label4_1 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =73
+        Size: =18
+        Text: ="End Date"
+        Width: =152
+        X: =14
+        Y: =304
+        ZIndex: =10
+
+    DatePicker_End As datepicker:
+        BorderColor: =App.Theme.Colors.Darker40
+        CalendarHeaderFill: =App.Theme.Colors.Primary
+        Color: =RGBA(15, 84, 140, 1)
+        DefaultDate: = DatePicker_End_V.SelectedDate
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =59
+        HoverDateFill: =App.Theme.Colors.Lighter70
+        IconBackground: =App.Theme.Colors.Primary
+        OnChange: |-
+            =If(DatePicker_Start.SelectedDate>DatePicker_End.SelectedDate, Reset(DatePicker_End); Notify("Incorrect Date !!", NotificationType.Error));
+            If(DatePicker_End_V.SelectedDate<DatePicker_End.SelectedDate, Reset(DatePicker_End); Notify("Incorrect Date !!", NotificationType.Error))
+        SelectedDateFill: =App.Theme.Colors.Primary
+        Size: =16
+        Width: =215
+        X: =166
+        Y: =318
+        ZIndex: =11
+
+    Dropdown_Option As dropdown:
+        BorderColor: =App.Theme.Colors.Darker40
+        ChevronBackground: =App.Theme.Colors.Primary
+        ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+        ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+        ChevronHoverBackground: =App.Theme.Colors.Darker10
+        ChevronHoverFill: =RGBA(255, 255, 255, 1)
+        Default: =If(!IsBlank(varVID), LookUp(Visit_Details, VID = varVID).Dealer)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =67
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Items: =["Dealer 1", "Dealer 2", "Dealer 3"]
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =App.Theme.Colors.Darker30
+        SelectionFill: =App.Theme.Colors.Primary
+        Size: =21
+        Width: =405
+        X: =14
+        Y: =486
+        ZIndex: =12
+
+    Label4_2 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =77
+        Size: =20
+        Text: ="Select an Dealer"
+        Width: =286
+        X: =14
+        Y: =409
+        ZIndex: =13
+
+    Label4_3 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =77
+        Size: =20
+        Text: ="Department Name"
+        Width: =286
+        X: =14
+        Y: =591
+        ZIndex: =14
+
+    Label4_4 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =77
+        Size: =20
+        Text: ="Purpose of Visit"
+        Width: =286
+        X: =14
+        Y: =779
+        ZIndex: =15
+
+    TextInput_Dept As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =//If(!IsBlank(varVID), LookUp(Visit_Details, VID = varVID).Department_V)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =82
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =21
+        Width: =560
+        X: =14
+        Y: =668
+        ZIndex: =16
+
+    TextInput_Visit As text:
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =//If(!IsBlank(varVID), LookUp(Visit_Details, VID = varVID).Purpose)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Font: =App.Theme.Font
+        Height: =119
+        HoverBorderColor: =App.Theme.Colors.Darker40
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =App.Theme.Colors.Lighter70
+        Size: =21
+        Width: =560
+        X: =14
+        Y: =856
+        ZIndex: =17
+
+    Label_SDate As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        BorderThickness: =1
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Fill: =RGBA(214, 221, 224, 1)
+        Font: =Font.Verdana
+        Height: =59
+        Size: =18
+        Text: =Text(DatePicker_Start_V.SelectedDate, "dd/mm/yyyy") & Text(DatePicker_End_V.SelectedDate, " - dd/mm/yyyy")
+        Width: =399
+        X: =222
+        Y: =100
+        ZIndex: =20
+
+    Label4_13 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =54
+        Size: =18
+        Text: ="Tour Date"
+        Width: =169
+        X: =14
+        Y: =102
+        ZIndex: =22
+
+    Icon7 As icon.CancelBadge:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        DisplayMode: =If(IsBlank(TextInput_Dept.Text) || IsBlank(TextInput_Visit.Text) , DisplayMode.Disabled, DisplayMode.Edit)
+        Icon: =Icon.CancelBadge
+        OnSelect: |
+            =Patch(
+                Visit_Details,
+                Defaults(Visit_Details),
+                {
+                    TPDID: varID,
+                    Dealer: Dropdown_Option.Selected.Value,
+                    Department_V: TextInput_Dept.Text,
+                    Purpose: TextInput_Visit.Text,
+                    'Status (cr1a6_status)': 99,
+                    Start_Date_V: DatePicker_Start.SelectedDate,
+                    End_Date_V: DatePicker_End.SelectedDate
+                }
+            );
+            Notify(
+                "Visit Added !!",
+                NotificationType.Success
+            );
+            Reset(TextInput_Dept);
+            Reset(TextInput_Visit);
+        Rotation: =45
+        X: =184
+        Y: =1023
+        ZIndex: =23
+
+    Button_LeadCreate As button:
+        BorderColor: =App.Theme.Colors.Primary
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: =DisplayMode.Edit//If(!IsBlank(TextInput_Dept.Text) || !IsBlank(TextInput_Visit.Text),DisplayMode.Edit, DisplayMode.Disabled)
+        Fill: =App.Theme.Colors.Primary
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =52
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =App.Theme.Colors.Darker10
+        OnSelect: |-
+            =NewForm(Lead_Form_1);
+            Navigate('Create Lead_Primitive')
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        Size: =24
+        Text: ="New Lead"
+        Visible: =false
+        Width: =174
+        X: =447
+        Y: =493
+        ZIndex: =24
+
+    Icon9 As icon.DetailList:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.DetailList
+        OnSelect: =Navigate('All Visits')
+        X: =330
+        Y: =1023
+        ZIndex: =25
+

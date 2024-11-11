@@ -1,0 +1,102 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr1a6_visit_detailses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr1a6_visit_details",
+    "MaxGetRowsCount": 500,
+    "Name": "Visit_Details",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr1a6_dealer": "Dealer",
+      "cr1a6_department_v": "Department_V",
+      "cr1a6_end_date_v": "End_Date_V",
+      "cr1a6_purpose": "Purpose",
+      "cr1a6_start_date_v": "Start_Date_V",
+      "cr1a6_status": "Status (cr1a6_status)",
+      "cr1a6_tpdid": "TPDID",
+      "cr1a6_vid": "VID",
+      "cr1a6_visit_details_AsyncOperations": "System Jobs",
+      "cr1a6_visit_details_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr1a6_visit_details_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr1a6_visit_details_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr1a6_visit_details_ProcessSession": "Process Sessions",
+      "cr1a6_visit_details_SyncErrors": "Sync Errors",
+      "cr1a6_visit_detailsid": "Visit_Details",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status (statecode)",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Visit_Details",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Visit_Details (Views)",
+    "Name": "_cr1a6_visit_details_views",
+    "RelatedEntityName": "Visit_Details",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "4668b139-aa8c-47f4-af90-9d53b3b0c2f3": "Active Visit_Details",
+      "731ac50e-a122-45c7-8f1e-76a00d145a22": "Visit_Details Lookup View",
+      "769f8e7a-241b-4848-8aef-d575e89ee4c8": "Visit_Details Associated View",
+      "84e524d9-70a9-442d-8b0d-5847cadfccad": "Inactive Visit_Details",
+      "8c40574a-46c4-4b02-8ee8-601aed8c882b": "Visit_Details Advanced Find View"
+    }
+  },
+  {
+    "DisplayName": "Status (Visit_Details)",
+    "Name": "cr1a6_visit_details_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Visit_Details"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Visit_Details",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Visit_Details)",
+    "Name": "cr1a6_visit_details_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Visit_Details"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Visit_Details",
+    "Type": "OptionSetInfo"
+  }
+]

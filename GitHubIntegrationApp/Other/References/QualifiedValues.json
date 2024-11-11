@@ -1,0 +1,46 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_cr1a6_newtable_forms",
+      "Namespace": "User_masters (Forms)",
+      "Values": {
+        "Information": "35831510-502f-44b6-9df0-bd0597559ee1"
+      }
+    },
+    {
+      "Kind": "default.cds_cr1a6_tp_details_forms",
+      "Namespace": "TP_Details (Forms)",
+      "Values": {
+        "Information": "fef1755f-d904-4a76-8b70-e905d79b301e"
+      }
+    },
+    {
+      "Kind": "default.cds_cr1a6_expense_details_forms",
+      "Namespace": "Expense_Details (Forms)",
+      "Values": {
+        "Information": "1844f9d4-05ed-4512-90e0-afa3bc014fe0"
+      }
+    },
+    {
+      "Kind": "default.cds_cr1a6_visit_details_forms",
+      "Namespace": "Visit_Details (Forms)",
+      "Values": {
+        "Information": "b37661bc-44e7-4074-b4da-282abbc682c1"
+      }
+    },
+    {
+      "Kind": "default.cds_cr1a6_lead_view_forms",
+      "Namespace": "Lead_Views (Forms)",
+      "Values": {
+        "Information": "04aa6d6e-101e-488c-a4ba-f34840e5574e"
+      }
+    },
+    {
+      "Kind": "default.cds_cr1a6_map_loc_forms",
+      "Namespace": "Map_locs (Forms)",
+      "Values": {
+        "Information": "d2a2d4ad-ff17-488d-9fb4-885511715c01"
+      }
+    }
+  ]
+}

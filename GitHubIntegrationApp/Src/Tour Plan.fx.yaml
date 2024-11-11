@@ -1,0 +1,142 @@
+"'Tour Plan' As screen":
+    BackgroundImage: =
+    Fill: =RGBA(139, 154, 159, 1)
+    ImagePosition: =ImagePosition.Center
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+    OnVisible: =
+
+    Header1_8 As Header:
+        Align: =""
+        BorderStyle: =""
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.Verdana
+        Height: =75
+        Logo: ='logo-removebg-preview'
+        OnSelectLogo: =false
+        Style: ='Header.Style'.Primary
+        Title: =App.ActiveScreen.Name
+        TitleFontSize: =25
+        UserEmail: =User().Email
+        UserImage: =User().Image
+        UserName: =User().FullName
+        Width: =Parent.Width
+        X: =0
+        Y: =0
+        ZIndex: =1
+
+    Label4_8 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =67
+        Size: =20
+        Text: ="Start Date"
+        Width: =194
+        X: =209
+        Y: =194
+        ZIndex: =8
+
+    DatePicker_Start_V As datepicker:
+        BorderColor: =App.Theme.Colors.Darker40
+        CalendarHeaderFill: =App.Theme.Colors.Primary
+        Color: =RGBA(15, 84, 140, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =69
+        HoverDateFill: =App.Theme.Colors.Lighter70
+        IconBackground: =App.Theme.Colors.Primary
+        SelectedDateFill: =App.Theme.Colors.Primary
+        Size: =20
+        Width: =280
+        X: =166
+        Y: =261
+        ZIndex: =9
+
+    Label4_12 As label:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =RGBA(242, 242, 242, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =67
+        Size: =20
+        Text: ="End Date"
+        Width: =194
+        X: =209
+        Y: =481
+        ZIndex: =10
+
+    DatePicker_End_V As datepicker:
+        BorderColor: =App.Theme.Colors.Darker40
+        CalendarHeaderFill: =App.Theme.Colors.Primary
+        Color: =RGBA(15, 84, 140, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Font: =Font.Verdana
+        FontWeight: =FontWeight.Semibold
+        Height: =69
+        HoverDateFill: =App.Theme.Colors.Lighter70
+        IconBackground: =App.Theme.Colors.Primary
+        OnChange: =If(DatePicker_Start_V.SelectedDate>DatePicker_End_V.SelectedDate, Reset(DatePicker_End_V); Notify("Incorrect Date !!", NotificationType.Error))
+        SelectedDateFill: =App.Theme.Colors.Primary
+        Size: =20
+        Width: =280
+        X: =166
+        Y: =548
+        ZIndex: =11
+
+    Button_Save_2 As button:
+        BorderColor: =App.Theme.Colors.Primary
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =App.Theme.Colors.Primary
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =70
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =RGBA(255, 255, 255, 1)
+        HoverFill: =App.Theme.Colors.Darker10
+        OnSelect: |-
+            =Set(
+                varID,
+                Patch(
+                    TP_Details,
+                    Defaults(TP_Details),
+                    {
+                        EEID: varUID,
+                        Start_Date: DatePicker_Start_V.SelectedDate,
+                        End_Date: DatePicker_End_V.SelectedDate,
+                        TPID: "TP0000",
+                        'Status (cr1a6_status)': 99
+                    }
+                ).TPDID
+            );
+            Navigate('Create Visit Plan')
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        Size: =24
+        Text: ="Next"
+        Width: =280
+        X: =341
+        Y: =1017
+        ZIndex: =18
+
+    Icon4_2 As icon.BackArrow:
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: =App.Theme.Colors.Darker30
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Icon: =Icon.BackArrow
+        OnSelect: =Navigate('Tour Plan Details')
+        X: =14
+        Y: =1023
+        ZIndex: =19
+
