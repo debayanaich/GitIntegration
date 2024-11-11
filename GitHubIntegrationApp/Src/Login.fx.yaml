@@ -122,7 +122,7 @@ Login As screen:
 
     TextCanvas1 As Text:
         DisplayMode: =DisplayMode.Edit
-        Height: =124
+        Height: =84
         Text: ="1234"
         Width: =448
         X: =40
